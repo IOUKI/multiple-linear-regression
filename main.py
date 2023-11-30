@@ -151,6 +151,13 @@ print(pd.DataFrame({
     'y test': yTest
 }))
 
+# final cost
+print(computeCost(xTest, yTest, wFinal, bFinal))
+
+# 5.3年資 碩士以上 城市A
+# 7.2年資 高中以下 城市B
+xReal = np.array([[5.3, 2, 1, 0], [7.2, 0, 0, 1]])
 # 特徵縮放
-# 可以針對特徵range比較大的特徵縮小
-# 標準化
+xReal = scaler.transform(xReal)
+yRead = (wFinal * xReal).sum(axis=1) + bFinal
+print(yRead)
